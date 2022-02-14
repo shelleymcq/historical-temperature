@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="flex justify-between items-center h-16 bg-slate-300 text-black relative shadow-sm" role="navigation">
-      <Link to="/" className="pl-8">
+      <div className="pl-8 text-lg">
         HISTORICAL TEMPERATURE DATA
-      </Link>
+      </div>
       {/* menu icon from https://heroicons.dev/ be sure to click for jsx*/}
       <div className="px-4 cursor-pointer md:hidden">
         <svg
@@ -25,10 +25,10 @@ const Navbar = () => {
         </svg>
       </div>
       <div className="pr-8 md:block hidden">
-        <Link className="p-4" to="/">Home</Link>
-        <Link className="p-4" to="/city-data">City Data</Link>
-        <Link className="p-4" to="/palette">Palette</Link>
-        <Link className="p-4" to="/about">About</Link>
+        <NavLink className="p-4" to="/">Home</NavLink>
+        <NavLink className="p-4" to="/city-data">City Data</NavLink>
+        <NavLink className="p-4" to="/palette">Palette</NavLink>
+        <NavLink className="p-4" to="/about">About</NavLink>
       </div>
     </nav>
   );

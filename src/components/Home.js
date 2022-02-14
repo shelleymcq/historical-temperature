@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import temperature from '../images/temperature.jpg';
 
-const Hero = () => {
+const Home = () => {
   return (
     <div className="bg-white h-screen flex flex-col items-center">
       <img src={temperature} alt="knit temperature swatch in shades of blue, geeen, and yellow"></img>
@@ -16,4 +16,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Home;
