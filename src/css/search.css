@@ -1,0 +1,14 @@
+.search {
+  height: 20rem;
+  width: 70%;
+  margin-top: 3rem;
+  margin-left: 3rem;
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+li {
+  list-style-type: none;
+}

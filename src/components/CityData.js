@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
+import Autocomplete from './Autocomplete';
 import cities from '../data/Cities';
+import "../css/search.css";
 
 const CityData = () => {
 
@@ -8,26 +10,14 @@ const CityData = () => {
 
   return (
     <div className="flex flex-col bg-slate-100 h-screen py-20"> 
-    <p>Please note that data for all US cities may not be available. If you do not see your city, try a larger city close to you.</p>
-    Begin typing city name with a capital letter (Ex: Atlan...) 
-      <form className='flex flex-row'>
+      <p>Please note that data for all US cities may not be available. If you do not see your city, try a larger city close to you.</p>
+
+      <form className='search flex flex-row'>
         <label>
           City
-          <input       
-            id='cityName'
-            name='cityName'
-            className='w-50 h-6 m-3'
-            type='text'
-            value={search}
-            onChange={event => setSearch(event.target.value)} 
-          />
-          {/* TODO: get city to autofill */}
-           {cities.filter(city => city.startsWith(search) || search === '')
-              .map(city => (
-              <li key={city}>
-                {city}
-              </li>
-            ))}
+          <Autocomplete
+            suggestions={cities} />
+
         </label>
         <label>
           Year

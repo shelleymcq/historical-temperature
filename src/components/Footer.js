@@ -6,13 +6,14 @@ const footerStyles = {
   width: '100%',
   textAlign: 'center',
   color: 'white',
-  background: 'slate'
+  backgroundColor: 'gray'
 };
 
 export default function Footer() {
   return (
     <footer style={footerStyles}>
-      Created with &#129526 by Shelley McHardy
+      Created with <span role='img' aria-label='yarn'>🧶</span> by Shelley McHardy 
     </footer>
   )
 }
+
