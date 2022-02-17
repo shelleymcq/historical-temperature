@@ -3,18 +3,20 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import CityData from './components/CityData';
 import Home from './components/Home';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer'
+import Footer from './components/Footer';
+import { ResponsiveNavBar } from './components/ResponsiveNavBar';
 
 function App() {
   return (
     <>
-     <Navbar />
+
+     <ResponsiveNavBar />
      <Routes>
        <Route path="/" element={<Home />} />
-       <Route path="/city-data" element={<CityData />} />
-       <Route path="/palette" element={<CityData />} />
-       <Route path="/about" element={<CityData />} />
+       <Route path="/Home" element={<Home />} />
+       <Route path="/City-Data" element={<CityData />} />
+       <Route path="/Palette" element={<CityData />} />
+       <Route path="/About" element={<CityData />} />
      </Routes>
     <Footer />
     </>

@@ -1,23 +1,19 @@
 import React from 'react';
-import { useState } from 'react';
 import Autocomplete from './Autocomplete';
 import cities from '../data/Cities';
 import "../css/search.css";
 
 const CityData = () => {
 
-  const [search, setSearch] = useState('');
-
   return (
-    <div className="flex flex-col bg-slate-100 h-screen py-20"> 
-      <p>Please note that data for all US cities may not be available. If you do not see your city, try a larger city close to you.</p>
+    <div className="flex flex-col bg-slate-100 h-full py-20"> 
+      <p className='ml-8'>Please note that data for all US cities may not be available. If you do not see your city, try a larger city close to you.</p>
 
       <form className='search flex flex-row'>
         <label>
           City
           <Autocomplete
             suggestions={cities} />
-
         </label>
         <label>
           Year
