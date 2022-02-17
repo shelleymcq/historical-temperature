@@ -1,7 +1,17 @@
 import React from 'react';
+import axios from 'axios';
 import Autocomplete from './Autocomplete';
 import cities from '../data/Cities';
 import "../css/search.css";
+
+let token = {'token':'oTpqrhNkWQBIbOWgrvJrCUeJdRKIhbac'};
+
+
+axios.get('https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datacategoryid=TEMP&datatypeid=TMAX&locationid=CITY:US060018&startdate=2020-01-01&enddate=2020-12-31&limit=1000&units=metric', {headers: token})
+  .then(response => {
+    console.log(response);
+});
+
 
 const CityData = () => {
 

@@ -9,7 +9,7 @@ const Home = () => {
       <h1 className="lg:text-7xl md:text-5xl sm:text-3xl text-3xl font-black my-14">
         Temperature Blankets
       </h1>
-      <Link to="City-Data" className="py-6 px-10 bg-slate-500 rounded-full text-xl hover:bg-slate-400 transition duration-300 ease-in-out">
+      <Link to="City-Data" className="py-6 px-10 bg-teal-500 rounded-full text-xl hover:bg-teal-400 transition duration-300 ease-in-out">
         Search for Your City
       </Link>
     </div>
