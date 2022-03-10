@@ -3,11 +3,13 @@ import { useState } from 'react';
 
 // built using this tutorial https://blog.logrocket.com/build-react-autocomplete-component/
 
-const Autocomplete = ({ suggestions }) => {
+const Autocomplete = ({ suggestions, getCityFromChild }) => {
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [input, setInput] = useState("");
+
+
 
   const onChange = (e) => {
     const userInput = e.target.value;
@@ -25,6 +27,7 @@ const Autocomplete = ({ suggestions }) => {
     const onClick = (e) => {
       setFilteredSuggestions([]);
       setInput(e.target.innerText);
+      getCityFromChild(e.target.innerText);
       setActiveSuggestionIndex(0);
       setShowSuggestions(false);
     };
