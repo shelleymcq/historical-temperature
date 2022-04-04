@@ -11,14 +11,18 @@ function CityData() {
   const [year, setYear] = useState("");
   const [cityID, setCityID] = useState("");
 
-    const getCityFromChild = (input) => {
+  // get state from Autocomplete https://www.freecodecamp.org/news/pass-data-between-components-in-react/
+  const getCityFromChild = (input) => {
     setCity(input);
-    // getCityID
+    getCityID(input);
   }
 
-  const getCityID = () => {
-    // get city ID
-    // setCityID
+  const getCityID = (city) => {
+      for (let i = 0; i < cityIDs.length; i++) {
+        if (city === cityIDs[i].name) {
+          setCityID(cityIDs[i].id);
+        }
+    }
   }
 
   const handleYearChange = event => {
@@ -29,14 +33,36 @@ function CityData() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    let token = {'token':'oTpqrhNkWQBIbOWgrvJrCUeJdRKIhbac'};
+    let noaaToken = {'token':'oTpqrhNkWQBIbOWgrvJrCUeJdRKIhbac'};
 
-    axios.get('https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datacategoryid=TEMP&datatypeid=TMAX&locationid=CITY:US060018&startdate=2020-01-01&enddate=2020-12-31&limit=1000&units=metric', {headers: token})
-      .then(response => {
-        console.log(response);
-        console.log(city);
-        console.log(year);
-    });
+    console.log(city);
+              
+    axios.get('https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datatypeid=TMAX&locationid=' +
+      city +
+      '&startdate=' +
+      year +
+      '-01-01&enddate=' +
+      year +
+      '-12-31&limit=1',
+      {headers: noaaToken})
+        .then(response => {
+          console.log(response);
+          console.log(response.results);
+          return response.results;
+        })
+        .then(data => {
+          console.log(data);
+          console.log(data.station);
+          return data[0].station;
+        })
+      //   .then(station => {
+      //     axios.get('"https://www.ncdc.noaa.gov/cdo-web/api/v2/data?datasetid=GHCND&datacategoryid=TEMP&datatypeid=TMAX&stationid=' + station + '&startdate=' + year + '-01-01&enddate=' + year + '-12-31&limit=1000&units=metric', {headers: noaaToken})
+      //     .then(response => {
+      //       console.log("Waiting for NOAA........")
+      //       console.log(response);
+      //   });
+      // }
+    
   }
 
   // convert temperature to farenheit
